@@ -67,9 +67,10 @@
         var isEqual = true
         btnFind.addEventListener('click', showImage)
         function showImage(e) {
-            let f = document.getElementsByTagName('img')[0]
+            let f = document.getElementById('img')
             let name = inpt.value
             let div = document.getElementById("imf")
+           
             console.log(name==oldName)
             if (name==oldName) {
                 showWarning("please enter diffrent name!")
@@ -81,10 +82,12 @@
             }
             else{
                 if (f!=null) {
-                f.remove()
+                    console.log("here")
+                    f.remove()
                 }
                 image = Math.floor(Math.random() * 13) + 1;
                 imgtag= document.createElement('img')
+                imgtag.id = 'img';
                 imgtag.src =`./images/${image}.jpg`;
                 imgtag.classList.add('rounded')
                 div.appendChild(imgtag)
